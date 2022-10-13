@@ -36,9 +36,9 @@
 </html>
 </h1>
 <div class="flex-container" id="target">
-    <div>row item 1</div>
-    <div>row item 2</div>
-    <div>row item 3</div>
+    <div class="cycler">row item 1</div>
+    <div class="cycler">row item 2</div>
+    <div class="cycler">row item 3</div>
 </div>
 <br>
 <div class="container-fluid" style="text-align: center;">
@@ -54,6 +54,8 @@
     <button onclick="makeNewDiv()" type="submit" class="btn btn-info">Add one</button>
     <button onclick="get()" type="submit" class="btn btn-info">Get</button>
     <button onclick="spin()" type="submit" class="btn btn-info">Spin</button>
+    <button onclick="swap()" type="submit" class="btn btn-info">Swap</button>
+
 </div>
 <script>
     function makeNewDiv() {
@@ -80,6 +82,18 @@
 
             var div_containers = document.getElementById("target");
             div_containers.insertBefore(removed_items, div_containers.firstChild)
+        }
+    }
+    function swap() {
+        let cyclerItems = document.getElementsByClassName("cycler")
+        let m = Math.floor(Math.random() * cyclerItems.length)
+        let n = Math.floor(Math.random() * cyclerItems.length)
+        let firstvalue = document.getElementsByClassName("cycler")[m]
+        let secondvalue = document.getElementsByClassName("cycler")[n]
+        if (cyclerItems.length > 1) {
+            let temp = firstvalue.innerHTML
+            firstvalue.innerHTML = secondvalue.innerHTML
+            secondvalue.innerHTML = temp
         }
     }
 </script>
