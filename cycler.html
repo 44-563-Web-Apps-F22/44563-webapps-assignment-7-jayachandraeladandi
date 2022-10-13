@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<title>cycler</title>
+
+<head>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+        }
+
+        .flex-container>div {
+            /*div children of the flex container*/
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <h1>cyclerhtml</html></h1>
+    <div class="flex-container" id="target">
+        <div>row item 1</div>
+        <div>row item 2</div>
+        <div>row item 3</div>
+    </div>
+    <br>
+    <div class="container-fluid" style="text-align: center;">
+        <label for="getInput">Enter the text here </label><br>
+        <input type="text" name="input" id="getInput" value="">
+        <br>
+    </div>
+    <div class="container-fluid text-center">
+        <p> Press the button to create an new element of type div and then add it
+            to the container.</p>
+    </div>
+    <div class="container text-center">
+        <button onclick="makeNewDiv()" type="submit" class="btn btn-info">Add one</button>
+
+    </div>
+    <script>
+        function makeNewDiv() {
+            var div_element = document.createElement("div");
+            var inputVal = document.getElementById("getInput").value;
+            div_element.innerHTML = inputVal;
+            div_element.className = "cycler";
+
+            let container = document.getElementById('target')
+            container.appendChild(div_element);
+        }
+    </script>
+
+</html>
